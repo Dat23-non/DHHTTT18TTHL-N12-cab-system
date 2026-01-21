@@ -161,51 +161,50 @@ Although the MVP is lightweight, the system reflects **Big Data design principle
 ## 📁 Project Structure
 
 cab-booking-system/
+├── docs/ # Documentation
+│ ├── architecture/
+│ ├── sequence/
+│ └── deployment/
 │
-├── docs/
-│   ├── architecture/
-│   ├── sequence/
-│   └── deployment/
+├── gateway-service/ # VM1 - API Gateway
+│ ├── src/
+│ │ ├── index.js
+│ │ ├── routes.js
+│ │ └── auth.middleware.js
+│ └── Dockerfile
 │
-├── gateway-service/          # VM1
-│   ├── src/
-│   │   ├── index.js
-│   │   ├── routes.js
-│   │   └── auth.middleware.js
-│   └── Dockerfile
+├── auth-service/ # VM1 - Authentication
+│ ├── src/
+│ │ ├── auth.controller.js
+│ │ ├── auth.service.js
+│ │ └── jwt.util.js
+│ └── Dockerfile
 │
-├── auth-service/             # VM1
-│   ├── src/
-│   │   ├── auth.controller.js
-│   │   ├── auth.service.js
-│   │   └── jwt.util.js
-│   └── Dockerfile
+├── booking-service/ # VM2 - Booking
+│ ├── src/
+│ │ ├── booking.controller.js
+│ │ ├── booking.service.js
+│ │ └── booking.model.js
+│ └── Dockerfile
 │
-├── booking-service/          # VM2
-│   ├── src/
-│   │   ├── booking.controller.js
-│   │   ├── booking.service.js
-│   │   └── booking.model.js
-│   └── Dockerfile
+├── driver-service/ # VM3 - Driver & Matching
+│ ├── src/
+│ │ ├── driver.controller.js
+│ │ └── matching.service.js
+│ └── Dockerfile
 │
-├── driver-service/           # VM3
-│   ├── src/
-│   │   ├── driver.controller.js
-│   │   └── matching.service.js
-│   └── Dockerfile
+├── trip-service/ # VM5 - Trip & Realtime
+│ ├── src/
+│ │ ├── trip.controller.js
+│ │ ├── trip.service.js
+│ │ └── websocket.js
+│ └── Dockerfile
 │
-├── trip-service/             # VM5
-│   ├── src/
-│   │   ├── trip.controller.js
-│   │   ├── trip.service.js
-│   │   └── websocket.js
-│   └── Dockerfile
+├── message-broker/ # VM4 - Kafka / RabbitMQ
+│ └── docker-compose.yml
 │
-├── message-broker/           # VM4
-│   └── docker-compose.yml
+├── frontend/ # React Client
+│ ├── src/
+│ └── tailwind.config.js
 │
-├── frontend/                 # React
-│   ├── src/
-│   └── tailwind.config.js
-│
-└── docker-compose.yml        # Local MVP demo
+└── docker-compose.yml # Local MVP Demo
