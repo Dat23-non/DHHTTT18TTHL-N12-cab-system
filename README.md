@@ -159,54 +159,48 @@ Although the MVP is lightweight, the system reflects **Big Data design principle
 ---
 
 ## 📁 Project Structure
-
+```bash
 cab-booking-system/
-├── docs/ # Documentation
-│ ├── architecture/
-│ ├── sequence/
-│ └── deployment/
+├── README.md
+├── docker-compose.yml                 # Toàn bộ hệ thống local
+├── .env.example
 │
-├── gateway-service/ # VM1 - API Gateway
-│ ├── src/
-│ │ ├── index.js
-│ │ ├── routes.js
-│ │ └── auth.middleware.js
-│ └── Dockerfile
+├── docs/
+│   ├── architecture/
+│   │   ├── high-level.md
+│   │   └── event-flow.md
+│   ├── sequence/
+│   └── deployment/
 │
-├── auth-service/ # VM1 - Authentication
-│ ├── src/
-│ │ ├── auth.controller.js
-│ │ ├── auth.service.js
-│ │ └── jwt.util.js
-│ └── Dockerfile
+├── gateway-service/                   # VM1 - API Gateway
+│   ├── src/
+│   │   ├── index.js
+│   │   └── ...
+│   └── Dockerfile
 │
-├── booking-service/ # VM2 - Booking
-│ ├── src/
-│ │ ├── booking.controller.js
-│ │ ├── booking.service.js
-│ │ └── booking.model.js
-│ └── Dockerfile
+├── auth-service/                      # VM1 - Authentication
+│   ├── src/
+│   │   ├── controllers/
+│   │   └── ...
+│   └── Dockerfile
 │
-├── driver-service/ # VM3 - Driver & Matching
-│ ├── src/
-│ │ ├── driver.controller.js
-│ │ └── matching.service.js
-│ └── Dockerfile
+├── booking-service/                   # VM2
+│   ├── src/
+│   └── Dockerfile
 │
-├── trip-service/ # VM5 - Trip & Realtime
-│ ├── src/
-│ │ ├── trip.controller.js
-│ │ ├── trip.service.js
-│ │ └── websocket.js
-│ └── Dockerfile
+├── driver-service/                    # VM3 - Driver & Matching
+│   ├── src/
+│   └── Dockerfile
 │
-├── message-broker/ # VM4 - Kafka / RabbitMQ
-│ └── docker-compose.yml
+├── trip-service/                      # VM5 - Trip + WebSocket
+│   ├── src/
+│   │   └── websocket.js
+│   └── Dockerfile
 │
-├── frontend/ # React Client
-│ ├── src/
-│ └── tailwind.config.js
+├── message-broker/                    # VM4
+│   └── docker-compose.yml             # kafka hoặc rabbitmq
 │
-└── docker-compose.yml # Local MVP Demo
-├── docker-compose.yml       # Chạy local
-└── README.md
+└── frontend/                          # React Client
+    ├── src/
+    ├── tailwind.config.js
+    └── Dockerfile
