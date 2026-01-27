@@ -162,7 +162,7 @@ Although the MVP is lightweight, the system reflects **Big Data design principle
 ```bash
 cab-booking-system/
 ├── README.md
-├── docker-compose.yml                 # Toàn bộ hệ thống local
+├── docker-compose.yml                 
 ├── .env.example
 │
 ├── docs/
@@ -198,7 +198,7 @@ cab-booking-system/
 │   └── Dockerfile
 │
 ├── message-broker/                    # VM4
-│   └── docker-compose.yml             # kafka hoặc rabbitmq
+│   └── docker-compose.yml             # kafka or rabbitmq
 │
 └── frontend/                          # React Client
     ├── src/
